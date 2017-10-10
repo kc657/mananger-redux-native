@@ -1,0 +1,1 @@
+# mananger-redux-native

@@ -7,16 +7,16 @@ export default class LoginForm extends Component {
       <Card>
         <CardSection>
           <Input
-            label="Email"
-            placeholder="email@example.com"
+            label='Email'
+            placeholder='email@example.com'
           />
         </CardSection>
 
         <CardSection>
-        <Input
-          label="Password"
-          placeholder="password"
-          isPassword
+          <Input
+            label='Password'
+            placeholder='password'
+            isPassword
         />
         </CardSection>
 

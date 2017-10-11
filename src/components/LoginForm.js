@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import  { connect } from 'react-redux' //bridge react and redux using this package
-import { emailChanged } from '../actions'
+import { emailChanged, passwordChanged } from '../actions'
 import { Card, CardSection, Button, Input } from './common'
 
 class LoginForm extends Component {
   onEmailChange = (text) => {
     this.props.emailChanged(text)
+  }
+
+  onPasswordChange = (text) => {
+    this.props.passwordChanged(text)
   }
 
   render () {
@@ -25,6 +29,8 @@ class LoginForm extends Component {
             label='Password'
             placeholder='password'
             isPassword
+            onChangeText={this.onPasswordChange}
+            value={this.props.password}
         />
         </CardSection>
 
@@ -40,8 +46,9 @@ class LoginForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    email: state.auth.email
+    email: state.auth.email,
+    password: state.auth.password
   }
 }
 
-export default connect(mapStateToProps, {emailChanged})(LoginForm)
+export default connect(mapStateToProps, {emailChanged, passwordChanged})(LoginForm)

@@ -1,6 +1,12 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED } from '../actions/types'
+import {
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED
+} from '../actions/types'
 
-const initial_state = { email: '' , password: ''}
+const initial_state = {
+  email: '',
+  password: ''
+}
 
 export default (state = initial_state, action) => {
   switch (action.type) {

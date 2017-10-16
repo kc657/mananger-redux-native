@@ -20,6 +20,8 @@ export default (state = initial_state, action) => {
       return { ...state, password: action.payload}
     case LOGIN_USER_SUCCESS:
       return { ...state, user: action.payload}
+    case LOGIN_USER_FAIL:
+      
     default:
       return state
   }

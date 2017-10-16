@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Text} from 'react-native'
 import  { connect } from 'react-redux' //bridge react and redux using this package
 import { emailChanged, passwordChanged, loginUser } from '../actions'
-import { Card, CardSection, Button, Input } from './common'
+import { Card, CardSection, Button, Input, Spinner } from './common'
 
 class LoginForm extends Component {
   onEmailChange = (text) => {
@@ -17,6 +17,20 @@ class LoginForm extends Component {
     const {email, password} = this.props
     this.props.loginUser({email, password})
   }
+
+  renderButton = () => {
+    if (this.props.loading) {
+        return (
+          <Spinner size="large" />
+        )
+    }
+    return (
+      <Button onPress={this.onButtonPress}>
+        Login
+      </Button>
+    )
+  }
+
 
   render () {
     return (
@@ -45,9 +59,7 @@ class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          <Button onPress={this.onButtonPress}>
-            Login
-          </Button>
+          {this.renderButton()}
         </CardSection>
       </Card>
     )
@@ -63,8 +75,8 @@ const styles = {
 }
 
 const mapStateToProps = ({auth}) => {
-  const { email, password, error } = auth
-  return { email, password, error}
+  const { email, password, error, loading } = auth
+  return { email, password, error, loading}
 }
 
 export default connect(mapStateToProps, {

@@ -26,19 +26,9 @@ class LoginForm extends Component {
     }
     return (
       <Button onPress={this.onButtonPress}>
-        Login
+        {this.props.error}
       </Button>
     )
-  }
-
-  renderError = () => {
-    if (this.props.error !== "") {
-      return (
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
-      )
-    }
   }
 
   render () {
@@ -66,8 +56,6 @@ class LoginForm extends Component {
         <CardSection>
           {this.renderButton()}
         </CardSection>
-
-        {this.renderError()}
       </Card>
     )
   }

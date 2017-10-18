@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {Text} from 'react-native'
-import  { connect } from 'react-redux' //bridge react and redux using this package
+import { Text } from 'react-native'
+import { connect } from 'react-redux' //bridge react and redux using this package
 import { emailChanged, passwordChanged, loginUser } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 

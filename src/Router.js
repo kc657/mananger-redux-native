@@ -17,9 +17,9 @@ const RouterComponent = () => {
           <Scene
             key='petList'
             component={PetList}
+            title='Pets'
             rightTitle='Add'
             onRight={() => Actions.petCreate()}
-            title='Pets'
             initial
           />
           <Scene

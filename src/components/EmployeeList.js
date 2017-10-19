@@ -5,9 +5,12 @@ class EmployeeList extends Component {
   render () {
     return (
       <View>
-        <Text>
-          Hello World
-        </Text>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
+        <Text>Hello World</Text>
       </View>
     )
   }

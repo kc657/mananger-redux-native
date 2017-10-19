@@ -17,7 +17,6 @@ const RouterComponent = () => {
             key='petList'
             component={PetList}
             title='Pets'
-
             initial/>
         </Scene>
       </Scene>

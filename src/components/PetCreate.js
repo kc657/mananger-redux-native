@@ -8,7 +8,7 @@ class PetCreate extends Component {
 
   onButtonPress = () => {
     const { name, phone, shift } = this.props
-    this.props.petFormSave({ name, phone, shift })
+    this.props.petFormSave({ name, phone, shift: shift || 'Monday' })
   }
 
   render () {

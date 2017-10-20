@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Text, View, ListView } from 'react-native'
 import { petFetch } from '../actions'
+import ListItem from './ListItem'
 
 class PetList extends Component {
 
@@ -24,17 +25,17 @@ class PetList extends Component {
     this.dataSource = ds.cloneWithRows(pets)
   }
 
+  renderRow = (pet) => {
+    return <ListItem pet={pet} />
+  }
+
   render () {
-    console.log(this.props);
     return (
-      <View>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-        <Text>Hello World</Text>
-      </View>
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
     )
   }
 }

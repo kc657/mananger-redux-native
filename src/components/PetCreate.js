@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Picker } from 'react-native'
+import { Picker, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { petFormUpdate } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
@@ -31,9 +31,9 @@ class PetCreate extends Component {
           />
         </CardSection>
 
-        <CardSection>
+        <CardSection style={{ flexDirection: 'column' }}>
+          <Text style={styles.pickerTextStyle}>Foster Date</Text>
           <Picker
-            style={{ flex:1 }}
             selectedValue={this.props.shift}
             onValueChange={(day) => this.props.petFormUpdate({ prop: 'shift', value: day})}
           >
@@ -45,7 +45,6 @@ class PetCreate extends Component {
             <Picker.Item label="Saturday" value="Saturday" />
             <Picker.Item label="Sunday" value="Sunday" />
           </Picker>
-
         </CardSection>
 
         <CardSection>
@@ -55,6 +54,13 @@ class PetCreate extends Component {
         </CardSection>
       </Card>
     )
+  }
+}
+
+const styles = {
+  pickerTextStyle: {
+    fontSize: 18,
+    paddingLeft: 20
   }
 }
 

@@ -8,3 +8,7 @@ export const petFormUpdate = ({ prop, value }) => {
     payload: { prop, value }
   }
 }
+
+export const petFormSave = ({ name, phone, shift }) => {
+  console.log(name, phone, shift);
+}

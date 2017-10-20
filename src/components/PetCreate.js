@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Picker, Text } from 'react-native'
 import { connect } from 'react-redux'
-import { petFormUpdate } from '../actions'
+import { petFormUpdate, petFormSave } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
 class PetCreate extends Component {
 
-  onNameChange = () => {
-
+  onButtonPress = () => {
+    const { name, phone, shift } = this.props
+    this.props.petFormSave({ name, phone, shift })
   }
 
   render () {
@@ -48,7 +49,7 @@ class PetCreate extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button onPress={this.onButtonPress}>
             Create
           </Button>
         </CardSection>
@@ -69,4 +70,4 @@ const mapStateToProps = (state) => {
   return { name, phone, shift }
 }
 
-export default connect(mapStateToProps, { petFormUpdate })(PetCreate)
+export default connect(mapStateToProps, { petFormUpdate, petFormSave })(PetCreate)

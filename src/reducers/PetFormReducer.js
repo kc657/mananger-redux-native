@@ -1,5 +1,5 @@
 import {
-  PET_CREATE
+  PET_FORM_UPDATE
 } from '../actions/types'
 
 const initial_state = {
@@ -10,7 +10,7 @@ const initial_state = {
 
 export default (state = initial_state, action) => {
   switch (action.type) {
-    case PET_CREATE:
+    case PET_FORM_UPDATE:
     // action.payload === { prop: 'name', value: 'zeus'}
     // use key interpolation
       return { ...state, [action.payload.prop]: action.payload.value }

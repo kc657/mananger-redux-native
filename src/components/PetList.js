@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Text, View } from 'react-native'
+import { petFetch } from '../actions'
 
 class PetList extends Component {
 
   componentWillMount () {
-
+    this.props.petFetch()
   }
-  
+
   render () {
     return (
       <View>
@@ -21,4 +23,4 @@ class PetList extends Component {
   }
 }
 
-export default PetList
+export default connect(null, { petFetch })(PetList)

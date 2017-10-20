@@ -1,6 +1,7 @@
 import {
   PET_FORM_UPDATE,
-  PET_FORM_CREATE
+  PET_FORM_CREATE,
+  PET_FETCH_SUCCESS
 } from '../actions/types'
 
 const initial_state = {

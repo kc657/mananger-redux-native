@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Text, View, ListView } from 'react-native'
@@ -20,10 +21,11 @@ class PetList extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     })
 
-    this.dataSource = ds.clonseWithRows(pets)
+    this.dataSource = ds.cloneWithRows(pets)
   }
 
   render () {
+    console.log(this.props);
     return (
       <View>
         <Text>Hello World</Text>
@@ -37,4 +39,12 @@ class PetList extends Component {
   }
 }
 
-export default connect(null, { petFetch })(PetList)
+const mapStateToProps = (state) => {
+  const pets = _.map(state.pets, (val, uid) => {
+    return { ...val, uid }
+  })
+
+  return { pets }
+}
+
+export default connect(mapStateToProps, { petFetch })(PetList)

@@ -14,7 +14,7 @@ class PetUpdate extends Component {
     })
   }
 
-  onButtonPress = () => {
+  onSavePress = () => {
     const { name, phone, shift } = this.props
     this.props.petUpdateSave({ name, phone, shift, uid:this.props.pet.uid })
   }
@@ -24,18 +24,32 @@ class PetUpdate extends Component {
     text(phone, `I can drop off ${name} on ${shift}.`)
   }
 
+  onDeletePress = () => {
+
+  }
+
   render () {
     return (
       <Card>
         <PetForm />
         <CardSection>
-          <Button onPress={this.onButtonPress}>
+          <Button onPress={this.onSavePress}>
             Save Changes
           </Button>
         </CardSection>
         <CardSection>
           <Button onPress={this.onTextPress}>
             Foster Drop Off
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onTextPress}>
+            Foster Drop Off
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onDeletePress}>
+            Delete Foster Pet
           </Button>
         </CardSection>
       </Card>

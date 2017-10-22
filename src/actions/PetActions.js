@@ -3,7 +3,8 @@ import { Actions } from 'react-native-router-flux'
 import {
   PET_FORM_UPDATE,
   PET_FORM_CREATE,
-  PET_FETCH_SUCCESS
+  PET_FETCH_SUCCESS,
+  PET_UPDATE_SAVE
 } from './types'
 
 export const petFormSave = ({ name, phone, shift }) => {
@@ -31,10 +32,15 @@ export const petFormUpdate = ({ prop, value }) => {
 export const petUpdateSave = ({ name, phone, shift, uid }) => {
   const { currentUser } = firebase.auth()
 
-  return () => {
+  return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/pets/${uid}`)
       .set({ name, phone, shift })
-      .then(() => console.log('saved!'))
+      .then(() => {
+        dispatch({
+          type: PET_UPDATE_SAVE
+        })
+        Actions.main({ type: 'reset' })
+      })
   }
 }
 

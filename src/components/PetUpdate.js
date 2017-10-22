@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { text } from 'react-native-communications'
 import PetForm from './PetForm'
 import { petFormUpdate, petUpdateSave } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
@@ -18,6 +19,11 @@ class PetUpdate extends Component {
     this.props.petUpdateSave({ name, phone, shift, uid:this.props.pet.uid })
   }
 
+  onTextPress = () => {
+    const { name, phone, shift } = this.props
+    text(phone, `I can drop off ${name} on ${shift}.`)
+  }
+
   render () {
     return (
       <Card>
@@ -25,6 +31,11 @@ class PetUpdate extends Component {
         <CardSection>
           <Button onPress={this.onButtonPress}>
             Save Changes
+          </Button>
+        </CardSection>
+        <CardSection>
+          <Button onPress={this.onTextPress}>
+            Foster Drop Off
           </Button>
         </CardSection>
       </Card>

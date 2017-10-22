@@ -6,7 +6,7 @@ import { CardSection } from './common'
 class ListItem extends Component {
 
   onRowPress = () => {
-    Actions.petCreate({pet: this.props.pet})
+    Actions.petUpdate({pet: this.props.pet})
   }
 
   render () {

@@ -6,13 +6,6 @@ import {
   PET_FETCH_SUCCESS
 } from './types'
 
-export const petFormUpdate = ({ prop, value }) => {
-  return {
-    type: PET_FORM_UPDATE,
-    payload: { prop, value }
-  }
-}
-
 export const petFormSave = ({ name, phone, shift }) => {
   const { currentUser } = firebase.auth()
 
@@ -25,6 +18,23 @@ export const petFormSave = ({ name, phone, shift }) => {
         })
         Actions.main({ type: 'reset' })
       })
+  }
+}
+
+export const petFormUpdate = ({ prop, value }) => {
+  return {
+    type: PET_FORM_UPDATE,
+    payload: { prop, value }
+  }
+}
+
+export const petUpdateSave = ({ name, phone, shift, uid }) => {
+  const { currentUser } = firebase.auth()
+
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/pets/${uid}`)
+      .set({ name, phone, shift })
+      .then(() => console.log('saved!'))
   }
 }
 

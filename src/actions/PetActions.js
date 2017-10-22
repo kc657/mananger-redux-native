@@ -58,8 +58,13 @@ export const petFetch = () => {
   }
 }
 
-export const petDelete = () => {
+export const petDelete = ({ uid }) => {
   const { currentUser } = firebase.auth()
-
-  
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/pets/${uid}`)
+      .remove()
+      .then(() => {
+        Actions.main({ type: 'reset' })
+      })
+  }
 }

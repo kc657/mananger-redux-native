@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { text } from 'react-native-communications'
 import PetForm from './PetForm'
-import { petFormUpdate, petUpdateSave } from '../actions'
+import { petFormUpdate, petUpdateSave, petDelete } from '../actions'
 import { Card, CardSection, Button, Input, Spinner, Confirm } from './common'
 
 class PetUpdate extends Component {
@@ -29,6 +29,17 @@ class PetUpdate extends Component {
     this.setState({ showModal: !this.state.showModal })
   }
 
+  onConfirmAccept = () => {
+    console.log(this.props.pet);
+    const { uid } = this.props.pet
+    console.log({uid});
+    this.props.petDelete({ uid })
+  }
+
+  onConfirmDecline = () => {
+    this.setState({ showModal: false })
+  }
+
   render () {
     return (
       <Card>
@@ -48,7 +59,11 @@ class PetUpdate extends Component {
             Delete Foster Pet
           </Button>
         </CardSection>
-        <Confirm visible={this.state.showModal}>
+        <Confirm
+          visible={this.state.showModal}
+          onAccept={this.onConfirmAccept}
+          onDecline={this.onConfirmDecline}
+        >
           Are you sure you want to delete this?
         </Confirm>
       </Card>
@@ -61,4 +76,4 @@ const mapStateToProps = (state) => {
   return { name, phone, shift }
 }
 
-export default connect(mapStateToProps, { petFormUpdate, petUpdateSave })(PetUpdate)
+export default connect(mapStateToProps, { petFormUpdate, petUpdateSave, petDelete })(PetUpdate)

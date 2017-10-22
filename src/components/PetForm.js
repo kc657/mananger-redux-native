@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, Picker } from 'react-native'
+import { connect } from 'react-redux'
+import { petFormUpdate } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
 
 class PetForm extends Component {
@@ -51,4 +53,9 @@ const styles = {
   }
 }
 
-export default PetForm
+const mapStateToProps = (state) => {
+  const { name, phone, shift } = state.petForm
+  return { name, phone, shift }
+}
+
+export default connect(mapStateToProps, { petFormUpdate })(PetForm)

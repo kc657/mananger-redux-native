@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Picker, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { petFormUpdate, petFormSave } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
+import PetForm from './PetForm'
 
 class PetCreate extends Component {
 
@@ -14,6 +14,7 @@ class PetCreate extends Component {
   render () {
     return(
       <Card>
+        <PetForm {...this.props} />
         <CardSection>
           <Button onPress={this.onButtonPress}>
             Create

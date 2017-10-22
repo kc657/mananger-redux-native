@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import { text } from 'react-native-communications'
 import PetForm from './PetForm'
 import { petFormUpdate, petUpdateSave } from '../actions'
-import { Card, CardSection, Button, Input, Spinner } from './common'
+import { Card, CardSection, Button, Input, Spinner, Confirm } from './common'
 
 class PetUpdate extends Component {
+  state = { showModal: false }
 
   componentWillMount () {
     _.each(this.props.pet, (value, prop) => {
@@ -25,7 +26,7 @@ class PetUpdate extends Component {
   }
 
   onDeletePress = () => {
-
+    this.setState({ showModal: !this.state.showModal })
   }
 
   render () {
@@ -43,15 +44,13 @@ class PetUpdate extends Component {
           </Button>
         </CardSection>
         <CardSection>
-          <Button onPress={this.onTextPress}>
-            Foster Drop Off
-          </Button>
-        </CardSection>
-        <CardSection>
           <Button onPress={this.onDeletePress}>
             Delete Foster Pet
           </Button>
         </CardSection>
+        <Confirm visible={this.state.showModal}>
+          Are you sure you want to delete this?
+        </Confirm>
       </Card>
     )
   }

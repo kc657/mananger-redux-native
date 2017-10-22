@@ -4,7 +4,7 @@ import {CardSection} from './CardSection'
 import {Button} from './Button'
 
 const Confirm = ({children, visible, onAccept, onDecline}) => {
-  { cardSectionStyle, containerStyle, textStyle } = this.styles
+  const { cardSectionStyle, containerStyle, textStyle } = styles
 
   return (
     <Modal

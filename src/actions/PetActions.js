@@ -57,3 +57,9 @@ export const petFetch = () => {
       })
   }
 }
+
+export const petDelete = () => {
+  const { currentUser } = firebase.auth()
+
+  
+}

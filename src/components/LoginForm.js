@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
 import { connect } from 'react-redux' //bridge react and redux using this package
 import { emailChanged, passwordChanged, loginUser } from '../actions'
 import { Card, CardSection, Button, Input, Spinner } from './common'
@@ -26,19 +25,9 @@ class LoginForm extends Component {
     }
     return (
       <Button onPress={this.onButtonPress}>
-        Login
+        {this.props.error}
       </Button>
     )
-  }
-
-  renderError = () => {
-    if (this.props.error !== "") {
-      return (
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
-      )
-    }
   }
 
   render () {
@@ -48,6 +37,7 @@ class LoginForm extends Component {
           <Input
             label='Email'
             placeholder='email@example.com'
+            keyboardType='email-address'
             onChangeText={this.onEmailChange}
             value={this.props.email}
           />
@@ -66,8 +56,6 @@ class LoginForm extends Component {
         <CardSection>
           {this.renderButton()}
         </CardSection>
-
-        {this.renderError()}
       </Card>
     )
   }

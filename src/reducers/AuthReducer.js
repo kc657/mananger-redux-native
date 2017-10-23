@@ -10,22 +10,22 @@ const initial_state = {
   email: '',
   password: '',
   user: null,
-  error: '',
+  error: 'Login',
   loading: false
 }
 
 export default (state = initial_state, action) => {
   switch (action.type) {
     case EMAIL_CHANGED:
-      return { ...state, email: action.payload }
+      return { ...state, email: action.payload, error: 'Login'}
     case PASSWORD_CHANGED:
-      return { ...state, password: action.payload}
+      return { ...state, password: action.payload, error: 'Login'}
     case LOGIN_USER:
-      return { ...state, loading: true, error: ''}
+      return { ...state, loading: true, error: 'Login'}
     case LOGIN_USER_SUCCESS:
-      return { ...state, ...initial_state, user: action.payload}
+      return { ...state, ...initial_state, user: action.payload, error:'Successfully Login!'}
     case LOGIN_USER_FAIL:
-      return { ...state, loading: false, error: 'Authentication Failed.', password: ''}
+      return { ...state, loading: false, error: action.payload, password: ''}
     default:
       return state
   }

@@ -7,7 +7,7 @@ import {
 const initial_state = {
   name: '',
   phone: '',
-  shift: ''
+  checkupDate: ''
 }
 
 export default (state = initial_state, action) => {

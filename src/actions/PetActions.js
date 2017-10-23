@@ -7,12 +7,12 @@ import {
   PET_UPDATE_SAVE
 } from './types'
 
-export const petFormSave = ({ name, phone, shift }) => {
+export const petFormSave = ({ name, phone, checkupDate }) => {
   const { currentUser } = firebase.auth()
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/pets`)
-      .push({ name, phone, shift })
+      .push({ name, phone, checkupDate })
       .then(() => {
         dispatch({
           type: PET_FORM_CREATE
@@ -29,12 +29,12 @@ export const petFormUpdate = ({ prop, value }) => {
   }
 }
 
-export const petUpdateSave = ({ name, phone, shift, uid }) => {
+export const petUpdateSave = ({ name, phone, checkupDate, uid }) => {
   const { currentUser } = firebase.auth()
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/pets/${uid}`)
-      .set({ name, phone, shift })
+      .set({ name, phone, checkupDate })
       .then(() => {
         dispatch({
           type: PET_UPDATE_SAVE

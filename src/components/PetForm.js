@@ -27,10 +27,10 @@ class PetForm extends Component {
         </CardSection>
 
         <CardSection style={{ flexDirection: 'column' }}>
-          <Text style={styles.pickerTextStyle}>Foster Date</Text>
+          <Text style={styles.pickerTextStyle}>Foster Checkup Date</Text>
           <Picker
-            selectedValue={this.props.shift}
-            onValueChange={(day) => this.props.petFormUpdate({ prop: 'shift', value: day})}
+            selectedValue={this.props.checkupDate}
+            onValueChange={(day) => this.props.petFormUpdate({ prop: 'checkupDate', value: day})}
         >
             <Picker.Item label='Monday' value='Monday' />
             <Picker.Item label='Tuesday' value='Tuesday' />
@@ -54,8 +54,8 @@ const styles = {
 }
 
 const mapStateToProps = (state) => {
-  const { name, phone, shift } = state.petForm
-  return { name, phone, shift }
+  const { name, phone, checkupDate } = state.petForm
+  return { name, phone, checkupDate }
 }
 
 export default connect(mapStateToProps, { petFormUpdate })(PetForm)

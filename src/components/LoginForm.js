@@ -37,6 +37,7 @@ class LoginForm extends Component {
           <Input
             label='Email'
             placeholder='email@example.com'
+            keyboardType='email-address'
             onChangeText={this.onEmailChange}
             value={this.props.email}
           />

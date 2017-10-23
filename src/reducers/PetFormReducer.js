@@ -7,7 +7,8 @@ import {
 const initial_state = {
   name: '',
   phone: '',
-  checkupDate: ''
+  checkupDate: '',
+  weight: ''
 }
 
 export default (state = initial_state, action) => {

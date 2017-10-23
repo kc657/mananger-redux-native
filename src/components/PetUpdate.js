@@ -16,13 +16,13 @@ class PetUpdate extends Component {
   }
 
   onSavePress = () => {
-    const { name, phone, checkupDate } = this.props
-    this.props.petUpdateSave({ name, phone, checkupDate, uid:this.props.pet.uid })
+    const { name, phone, weight, checkupDate } = this.props
+    this.props.petUpdateSave({ name, phone, weight, checkupDate, uid:this.props.pet.uid })
   }
 
   onTextPress = () => {
-    const { name, phone, checkupDate } = this.props
-    text(phone, `I can drop off ${name} on ${checkupDate}.`)
+    const { name, phone, weight, checkupDate } = this.props
+    text(phone, `Hi, I am the foster parent of ${name} who is currently ${weight}grams and growing fast. I would like to bring ${name} into the shelter on ${checkupDate} for the weekly checkup. You can reach me at ${phone} if there are any changes ${name}'s schedule.`)
   }
 
   onDeletePress = () => {
@@ -72,8 +72,8 @@ class PetUpdate extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { name, phone, checkupDate } = state.petForm
-  return { name, phone, checkupDate }
+  const { name, phone, weight, checkupDate } = state.petForm
+  return { name, phone, weight, checkupDate }
 }
 
 export default connect(mapStateToProps, { petFormUpdate, petUpdateSave, petDelete })(PetUpdate)

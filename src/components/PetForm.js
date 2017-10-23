@@ -10,7 +10,7 @@ class PetForm extends Component {
       <View>
         <CardSection>
           <Input
-            label='Name'
+            label='Pet Name'
             placeholder='Zeus'
             value={this.props.name}
             onChangeText={(text) => this.props.petFormUpdate({ prop: 'name', value: text})}
@@ -19,9 +19,20 @@ class PetForm extends Component {
 
         <CardSection>
           <Input
-            label='Phone'
+            label='Pet Weight'
+            placeholder='Weight in Grams'
+            value={this.props.weight}
+            keyboardType='number-pad'
+            onChangeText={(text) => this.props.petFormUpdate({ prop: 'weight', value: text})}
+        />
+        </CardSection>
+
+        <CardSection>
+          <Input
+            label='Your Phone'
             placeholder='555-555-5555'
             value={this.props.phone}
+            keyboardType='phone-pad'
             onChangeText={(text) => this.props.petFormUpdate({ prop: 'phone', value: text})}
         />
         </CardSection>
@@ -54,8 +65,8 @@ const styles = {
 }
 
 const mapStateToProps = (state) => {
-  const { name, phone, checkupDate } = state.petForm
-  return { name, phone, checkupDate }
+  const { name, phone, checkupDate, weight } = state.petForm
+  return { name, phone, checkupDate, weight }
 }
 
 export default connect(mapStateToProps, { petFormUpdate })(PetForm)

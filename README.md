@@ -12,7 +12,7 @@ The current MVP has these following features:
 
 Theses are the features I will implement next:
 - Send the data to Berkeley Humane about the pet in a visual format
-- Write an algorithm that detects large deviation of weight and notifies the shelter if such deviation occurs
+- Write an algorithm that detects large deviation of weight and notifies the shelter if such deviation occurs (by detecting weight anomalies early on, we can get them the medical attention required and lower young animal mortality rates)
 - Allow users to input their own photos of the pet (currently a static image)
 
 

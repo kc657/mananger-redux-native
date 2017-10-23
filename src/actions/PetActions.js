@@ -60,10 +60,13 @@ export const petFetch = () => {
 
 export const petDelete = ({ uid }) => {
   const { currentUser } = firebase.auth()
-  return () => {
+  return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/pets/${uid}`)
       .remove()
       .then(() => {
+        dispatch({
+          type: PET_UPDATE_SAVE
+        })
         Actions.main({ type: 'reset' })
       })
   }

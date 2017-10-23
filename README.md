@@ -22,9 +22,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 Clone this repository onto your local machine:
 ```
-$ git clone https://github.com/kc657/Articulatin-Frontend.git
+$ git clone https://github.com/kc657/mananger-redux-native.git
 ```
-CD into the Articulate-Frontend directory and run NPM install:
+CD into the directory and run NPM install:
 ```
 $ npm install
 ```
@@ -45,4 +45,4 @@ $ react-native run-ios
 
 ## Authors
 
-* **Kevin Chen** - *Full Stack Developer* - [Personal Webpage](https://kevinchen.netlify.com/)<span/>/[LinkedIn](https://www.linkedin.com/in/kc657)
+* **Kevin Chen** - *Full Stack Developer* - [Personal Webpage](https://compilekev.in)<span/>/[LinkedIn](https://www.linkedin.com/in/kc657)

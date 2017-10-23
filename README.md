@@ -1,13 +1,13 @@
 # [Faster Foster](https://www.youtube.com/watch?v=e2WpYP1qI_o) (Click Here For Video Demo)
 
 
-Faster Foster is a React Native/Redux application that runs on both iOS and Android. I recently joined a foster care program at [Berkeley Humane](https://berkeleyhumane.org/Foster) where I picked up two amazing kittens named Zeus and Hera. The shelter required foster volunteers to keep a record of the kittens' weight and communicate it with the shelter on a regular basis. In addition, I also had to set up checkups at the shelter on a regular basis. I wanted to create an application that can expedite this process for both the volunteer and Berkeley Humane. The end goal of this application is to help volunteer quickly input the information, communicate it efficiently with the shelter, and give shelter the data in a visual format.
+Faster Foster is a React Native/Redux application that runs on both iOS and Android. I recently joined a foster care program at [Berkeley Humane](https://berkeleyhumane.org/Foster) where I picked up two amazing kittens named Zeus and Hera. The shelter require foster volunteers to weigh the kittens every day and communicate it with the shelter on a regular basis. In addition, I also had to set up checkups at the shelter on a regular basis. I wanted to create an application that can expedite this process for both the volunteer and Berkeley Humane. The end goal of this application is to help volunteer quickly input the information, communicate it efficiently with the shelter, and give the shelter data in a visual format.
 
 The current MVP has these following features:
 - Authentication using Google's Firebase
 - User can add foster pets to their personal list and input information such as weight and scheduled checkup dates
 - User can edit the weight on a daily basis
-- User can send a text message with all the information about the pet neatly formatted with one-click (texting is not supported in Xcode simulator)
+- User can send a templated text message with all the kitten's data included with one-click (texting is not supported in Xcode simulator)
 - User can delete the pet from their list once it has been successfully adopted
 
 Theses are the features I will implement next:

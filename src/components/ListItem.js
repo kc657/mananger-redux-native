@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableWithoutFeedback } from 'react-native'
+import { Text, View, Image, TouchableWithoutFeedback } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import { CardSection } from './common'
+import { Card, CardSection, Button, Input, Spinner } from './common'
 
 class ListItem extends Component {
 
@@ -10,16 +10,30 @@ class ListItem extends Component {
   }
 
   render () {
-    const { name } = this.props.pet
+    const {
+      headerContainerStyle,
+      headerTextStyle,
+      petImageStyle
+    } = styles
+    const { name, weight } = this.props.pet
 
     return (
       <TouchableWithoutFeedback onPress={this.onRowPress}>
         <View>
-          <CardSection>
-            <Text style={styles.titleStyle}>
-              {name}
-            </Text>
-          </CardSection>
+          <Card>
+            <CardSection>
+              <View style={headerContainerStyle}>
+                <Text style={headerTextStyle}>{name}</Text>
+                <Text>{weight} grams</Text>
+              </View>
+            </CardSection>
+            <CardSection>
+              <Image
+                source={{uri: 'https://i.imgur.com/kfw89CG.jpg'}}
+                style={petImageStyle}
+                />
+            </CardSection>
+          </Card>
         </View>
       </TouchableWithoutFeedback>
     )
@@ -27,9 +41,17 @@ class ListItem extends Component {
 }
 
 const styles = {
-  titleStyle: {
-    fontSize: 18,
-    paddingLeft: 15
+  headerTextStyle: {
+    fontSize: 18
+  },
+  headerContainerStyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
+  petImageStyle: {
+    height: 300,
+    flex: 1,
+    width: null
   }
 }
 

@@ -38,4 +38,47 @@ describe('Pet Form Reducer', () => {
       }
     )
   })
+
+  it('should handle PET_FORM_UPDATE for weight input', () => {
+    expect(
+      reducer([], {
+        type: types.PET_FORM_UPDATE,
+        payload: { prop: 'weight', value: '800'}
+      })
+    ).toEqual(
+      {
+        weight: '800'
+      }
+    )
+  })
+
+  it('should handle PET_FORM_CREATE', () => {
+    expect(
+      reducer([], {
+        type: types.PET_FORM_CREATE
+      })
+    ).toEqual(
+      {
+        name: '',
+        phone: '',
+        checkupDate: '',
+        weight: ''
+      }
+    )
+  })
+
+  it('should handle PET_UPDATE_SAVE', () => {
+    expect(
+      reducer([], {
+        type: types.PET_UPDATE_SAVE
+      })
+    ).toEqual(
+      {
+        name: '',
+        phone: '',
+        checkupDate: '',
+        weight: ''
+      }
+    )
+  })
 })

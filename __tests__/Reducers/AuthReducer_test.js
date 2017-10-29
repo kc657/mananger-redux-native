@@ -1,5 +1,5 @@
-import reducer from '../src/reducers/AuthReducer'
-import * as types from '../src/actions/types'
+import reducer from '../../src/reducers/AuthReducer'
+import * as types from '../../src/actions/types'
 
 describe('Auth Reducer', () => {
   it('should return the initial state', () => {

@@ -1,5 +1,5 @@
-import reducer from '../src/reducers/PetFormReducer'
-import * as types from '../src/actions/types'
+import reducer from '../../src/reducers/PetFormReducer'
+import * as types from '../../src/actions/types'
 
 describe('Pet Form Reducer', () => {
   it('should return the initial state', () => {

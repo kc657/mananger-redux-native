@@ -11,7 +11,7 @@ describe('Pet Form Reducer', () => {
         weight: ''
       }
     )
-  }),
+  })
 
   it('should handle PET_FORM_UPDATE for name input', () => {
     expect(

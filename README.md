@@ -9,11 +9,12 @@ The current MVP has these following features:
 - User can edit the weight on a daily basis
 - User can send a templated text message with all the kitten's data included with one-click (texting is not supported in Xcode simulator)
 - User can delete the pet from their list once it has been successfully adopted
+- Use Jest for reducers testing
 
 Theses are the features I will implement next:
 - Send the data to Berkeley Humane about the pet in a visual format
 - Write an algorithm that detects large deviation of weight and notifies the shelter if such deviation occurs (by detecting weight anomalies early on, we can get them the medical attention required and lower young animal mortality rates)
-- Move backend away from Firebase to a node.js backend 
+- Move backend away from Firebase to a node.js backend
 - Allow users to input their own photos of the pet (currently a static image)
 
 
@@ -42,6 +43,7 @@ $ react-native run-ios
 * [React Native Router Flux](https://github.com/aksonov/react-native-router-flux)
 * [React Redux](https://github.com/reactjs/react-redux)
 * [React Native Communications](https://github.com/anarchicknight/react-native-communications)
+* [Jest](https://facebook.github.io/jest/)
 
 
 ## Authors

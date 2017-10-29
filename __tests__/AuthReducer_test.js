@@ -27,4 +27,48 @@ describe('Auth Reducer', () => {
       }
     )
   })
+
+  it('should handle PASSWORD_CHANGED for password input', () => {
+    expect(
+      reducer([], {
+        type: types.PASSWORD_CHANGED,
+        payload: 'password123'
+      })
+    ).toEqual(
+      {
+        password: 'password123',
+        error: 'Login'
+      }
+    )
+  })
+
+  it('should handle LOGIN_USER', () => {
+    expect(
+      reducer([], {
+        type: types.LOGIN_USER
+      })
+    ).toEqual(
+      {
+        loading: true,
+        error: 'Login'
+      }
+    )
+  })
+
+  it('should handle LOGIN_USER_SUCCESS', () => {
+    expect(
+      reducer([], {
+        type: types.LOGIN_USER_SUCCESS,
+        payload: {'user': 'user object from google firebase'}
+      })
+    ).toEqual(
+      {
+        email: '',
+        password: '',
+        user: {'user': 'user object from google firebase'},
+        error: 'Successfully Login!',
+        loading: false
+      }
+    )
+  })
 })
